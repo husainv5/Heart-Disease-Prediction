@@ -29,7 +29,7 @@ The dataset used for this project comes from the UCI Machine Learning Repository
 
 ### Cholesterol Distribution by Heart Disease
 
-![Cholesterol_Distribution](images/Cholesterol Dist heart data.png)
+![Cholesterol_Distribution](images/Cholesterol_Dist_heart_data.png)
 *This plot shows the distribution of cholesterol levels for patients with and without heart disease. It indicates that cholesterol is an important feature for distinguishing between the two groups.*
 
 This is a histogram comparing cholesterol levels between people with and without heart disease. The x-axis represents cholesterol levels, while the y-axis shows the count of individuals.
