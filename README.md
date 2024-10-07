@@ -29,7 +29,7 @@ The dataset used for this project comes from the UCI Machine Learning Repository
 
 ### Cholesterol Distribution by Heart Disease
 
-![Cholesterol_Distribution](path_to_image/cholesterol_dist_heart_data.png)
+![Cholesterol_Distribution](images/cholesterol_dist_heart_data.png)
 *This plot shows the distribution of cholesterol levels for patients with and without heart disease. It indicates that cholesterol is an important feature for distinguishing between the two groups.*
 
 This is a histogram comparing cholesterol levels between people with and without heart disease. The x-axis represents cholesterol levels, while the y-axis shows the count of individuals.
@@ -38,7 +38,7 @@ There is a clear distinction between cholesterol levels for individuals with and
 
 ### Confusion Matrix
 
-![Confusion Matrix](path_to_image/confusion_matrix_heart_data.png)
+![Confusion Matrix](images/confusion_matrix_heart_data.png)
 *Confusion matrix showcasing the true positives, false negatives, and false positives in heart disease classification.*
 
 A confusion matrix that compares actual labels (True Labels) with predicted labels from the machine learning model. It measures how well the model classifies individuals as having heart disease (1) or not (0).
@@ -47,7 +47,7 @@ The model predicted 60 true negatives (correctly predicted as not having heart d
 
 ### Correlation Heatmap
 
-![Correlation_Heatmap](path_to_image/correlation_heatmap_heart_data.png)
+![Correlation_Heatmap](images/correlation_heatmap_heart_data.png)
 
 This heatmap shows the correlation between different features in the dataset, including the target variable (HeartDisease). The intensity of color represents the strength and direction of the correlation, with darker shades indicating stronger correlations.
 
