@@ -29,19 +29,29 @@ The dataset used for this project comes from the UCI Machine Learning Repository
 
 ### Cholesterol Distribution by Heart Disease
 
-This plot shows the distribution of cholesterol levels for patients with and without heart disease. It indicates that cholesterol is an important feature for distinguishing between the two groups.
+![Cholesterol_Distribution](path_to_image/cholesterol_dist_heart_data.png)
+*This plot shows the distribution of cholesterol levels for patients with and without heart disease. It indicates that cholesterol is an important feature for distinguishing between the two groups.*
+
+This is a histogram comparing cholesterol levels between people with and without heart disease. The x-axis represents cholesterol levels, while the y-axis shows the count of individuals.
+
+There is a clear distinction between cholesterol levels for individuals with and without heart disease. It shows that individuals with no heart disease (blue bars) are spread across a range of cholesterol values, while a significant number of individuals with heart disease (orange bars) have a cholesterol level of 0. This suggests either missing data or a subgroup of patients with distinct cholesterol characteristics.
 
 ### Confusion Matrix
 
-The confusion matrix evaluates the performance of the Random Forest classifier. It displays the true positive and true negative predictions, as well as any misclassifications.
+![Confusion Matrix](path_to_image/confusion_matrix_heart_data.png)
+*Confusion matrix showcasing the true positives, false negatives, and false positives in heart disease classification.*
+
+A confusion matrix that compares actual labels (True Labels) with predicted labels from the machine learning model. It measures how well the model classifies individuals as having heart disease (1) or not (0).
+
+The model predicted 60 true negatives (correctly predicted as not having heart disease), 21 false negatives (incorrectly predicted as not having heart disease), 21 false positives (incorrectly predicted as having heart disease), and 93 true positives (correctly predicted as having heart disease). This indicates a relatively good performance with a slight bias toward predicting heart disease.
 
 ### Correlation Heatmap
 
-The correlation heatmap highlights the relationships between the different features. Features that are strongly correlated with heart disease can be identified.
+![Correlation_Heatmap](path_to_image/correlation_heatmap_heart_data.png)
 
-### ROC Curve
+This heatmap shows the correlation between different features in the dataset, including the target variable (HeartDisease). The intensity of color represents the strength and direction of the correlation, with darker shades indicating stronger correlations.
 
-The ROC curve illustrates the true positive rate versus the false positive rate for the Random Forest classifier, with an Area Under the Curve (AUC) score to measure model performance.
+The heatmap shows that features like MaxHR (Maximum Heart Rate) and Oldpeak have relatively stronger correlations with heart disease (-0.4 and 0.4 respectively). Age and RestingBP, on the other hand, do not show strong correlations with heart disease.
 
 ## Model Performance
 
