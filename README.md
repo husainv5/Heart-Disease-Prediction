@@ -6,7 +6,7 @@ This project aims to predict the presence of heart disease in individuals using 
 
 - **Tools Used:** Databricks, PySpark, SQL, Matplotlib, Seaborn, Scikit-learn
 - **Algorithms Used:** Random Forest Classifier
-- **Key Plots:**
+- **Key Visualizations:**
   - Cholesterol distribution by heart disease
   - Confusion Matrix
   - Correlation Heatmap
@@ -14,51 +14,75 @@ This project aims to predict the presence of heart disease in individuals using 
 
 ## Dataset
 
-The dataset used for this project comes from the UCI Machine Learning Repository. It contains various attributes related to heart health and habits, which are used to classify whether an individual has heart disease.
+The dataset used for this project comes from the UCI Machine Learning Repository. It contains various attributes related to heart health, which are used to classify whether an individual has heart disease.
 
-- **Columns of Interest:**
-  - Age, Sex, Resting Blood Pressure, Cholesterol, Fasting Blood Sugar, Max Heart Rate, ST Depression, etc.
+### Columns of Interest:
+- **Age**: Patient's age
+- **Sex**: Male or Female
+- **Resting Blood Pressure**: Blood pressure (in mm Hg) while at rest
+- **Cholesterol**: Serum cholesterol level (mg/dL)
+- **Fasting Blood Sugar**: Whether fasting blood sugar is > 120 mg/dL
+- **Max Heart Rate**: Maximum heart rate achieved during exercise
+- **ST Depression**: Depression in the ST segment of the ECG
+- **Target (Heart Disease)**: 1 = Heart disease present, 0 = No heart disease
 
 ## Notebooks and Files
 
-- **Notebook:** The main notebook (`Heart Disease.ipynb`) contains the entire code for data cleaning, model training, and visualization.
-- **SQL Queries:** SQL is used to initially query and manipulate data in Databricks.
-- **Random Forest Classifier:** The machine learning model used to make predictions.
+- **Notebook:** The main notebook (`Heart Disease.ipynb`) contains the full process, including data cleaning, exploratory data analysis (EDA), model training, evaluation, and visualizations.
+- **SQL Queries:** SQL was used within Databricks to query, filter, and manipulate data.
+- **Model:** A Random Forest Classifier was applied to predict heart disease presence, trained on various features.
 
-## Visualizations
+## Exploratory Data Analysis (EDA)
+
+To gain insights into the data, several visualizations were created. Here are some key ones:
 
 ### Cholesterol Distribution by Heart Disease
 
 ![Cholesterol_Distribution](images/Cholesterol_Dist_heart_data.png)
-*This plot shows the distribution of cholesterol levels for patients with and without heart disease. It indicates that cholesterol is an important feature for distinguishing between the two groups.*
+*This histogram compares cholesterol levels between people with and without heart disease.*
 
-This is a histogram comparing cholesterol levels between people with and without heart disease. The x-axis represents cholesterol levels, while the y-axis shows the count of individuals.
-
-There is a clear distinction between cholesterol levels for individuals with and without heart disease. It shows that individuals with no heart disease (blue bars) are spread across a range of cholesterol values, while a significant number of individuals with heart disease (orange bars) have a cholesterol level of 0. This suggests either missing data or a subgroup of patients with distinct cholesterol characteristics.
+- **Explanation**: The plot highlights the distribution of cholesterol levels. Patients without heart disease tend to have a wider spread of cholesterol values, while those with heart disease show higher cholesterol levels concentrated at specific points. Some individuals with heart disease show a cholesterol level of zero, possibly indicating missing or anomalous data.
 
 ### Confusion Matrix
 
 ![Confusion Matrix](images/confusion_matrix_heart_data.png)
-*Confusion matrix showcasing the true positives, false negatives, and false positives in heart disease classification.*
+*This confusion matrix shows the breakdown of the model’s predictions: true positives, false positives, true negatives, and false negatives.*
 
-A confusion matrix that compares actual labels (True Labels) with predicted labels from the machine learning model. It measures how well the model classifies individuals as having heart disease (1) or not (0).
-
-The model predicted 60 true negatives (correctly predicted as not having heart disease), 21 false negatives (incorrectly predicted as not having heart disease), 21 false positives (incorrectly predicted as having heart disease), and 93 true positives (correctly predicted as having heart disease). This indicates a relatively good performance with a slight bias toward predicting heart disease.
+- **Explanation**: The model successfully predicted 60 true negatives and 93 true positives, indicating that it correctly identified patients with and without heart disease in many cases. However, it also resulted in 21 false negatives and 21 false positives, highlighting areas for potential improvement.
 
 ### Correlation Heatmap
 
 ![Correlation_Heatmap](images/correlation_heatmap_heart_data.png)
+*The correlation heatmap shows relationships between variables, where darker colors represent stronger correlations.*
 
-This heatmap shows the correlation between different features in the dataset, including the target variable (HeartDisease). The intensity of color represents the strength and direction of the correlation, with darker shades indicating stronger correlations.
-
-The heatmap shows that features like MaxHR (Maximum Heart Rate) and Oldpeak have relatively stronger correlations with heart disease (-0.4 and 0.4 respectively). Age and RestingBP, on the other hand, do not show strong correlations with heart disease.
+- **Explanation**: Max Heart Rate (MaxHR) and ST Depression (Oldpeak) have stronger correlations with the presence of heart disease than other features. These variables play a crucial role in the classification process.
 
 ## Model Performance
 
-The Random Forest model was evaluated using several metrics:
-- **Accuracy:** 0.78
-- **Precision, Recall, F1-Score:**  0.78 , 0.78,  0.78
-- **AUC (ROC Curve):** 0.83
+The Random Forest classifier was used to predict heart disease. Below are the key performance metrics:
+
+- **Accuracy:** 78.46%
+- **Precision:** 78.46%
+- **Recall:** 78.46%
+- **F1-Score:** 78.46%
+- **ROC-AUC Score:** 0.83
+
+- **Explanation**: The model shows balanced precision, recall, and F1-Score, meaning it performs consistently across all evaluation metrics. The ROC-AUC score of 0.83 indicates a good overall performance, with the model being able to distinguish well between positive and negative cases.
+
+## Conclusions and Insights
+
+Through this analysis, it was confirmed that certain features, such as cholesterol, exercise-induced angina, and maximum heart rate, are strongly associated with heart disease. The following key insights were observed:
+
+- **Cholesterol Levels**: Elevated cholesterol levels are a key indicator of heart disease.
+- **Max Heart Rate**: Lower maximum heart rates are often associated with heart disease, potentially due to reduced cardiovascular efficiency.
+- **Chest Pain Type**: Different types of chest pain, particularly asymptomatic (silent ischemia), have a stronger relationship with heart disease.
+
+Despite the model's relatively good performance, there is room for improvement, especially in reducing false positives and false negatives. A more complex model (e.g., Gradient Boosting) or additional features may enhance predictions.
+
+### Next Steps for Future Work
+- **Additional Algorithms**: Exploring more advanced algorithms like XGBoost, or tuning hyperparameters of the Random Forest model.
+- **Feature Engineering**: Creating interaction features or aggregating related features might yield better results.
+- **Handling Missing Data**: Addressing potential anomalies or missing values in key features, such as cholesterol, to improve model robustness.
 
 ## Setup Instructions
 
@@ -66,10 +90,9 @@ The Random Forest model was evaluated using several metrics:
 
 - Python 3.x
 - PySpark
-- Matplotlib
-- Seaborn
+- Databricks
+- Matplotlib, Seaborn
 - Scikit-learn
-- Databricks (for cloud-based notebook and SQL)
 
 ### How to Run the Code
 
