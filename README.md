@@ -77,12 +77,6 @@ Through this analysis, it was confirmed that certain features, such as cholester
 - **Max Heart Rate**: Lower maximum heart rates are often associated with heart disease, potentially due to reduced cardiovascular efficiency.
 - **Chest Pain Type**: Different types of chest pain, particularly asymptomatic (silent ischemia), have a stronger relationship with heart disease.
 
-Despite the model's relatively good performance, there is room for improvement, especially in reducing false positives and false negatives. A more complex model (e.g., Gradient Boosting) or additional features may enhance predictions.
-
-### Next Steps for Future Work
-- **Additional Algorithms**: Exploring more advanced algorithms like XGBoost, or tuning hyperparameters of the Random Forest model.
-- **Feature Engineering**: Creating interaction features or aggregating related features might yield better results.
-- **Handling Missing Data**: Addressing potential anomalies or missing values in key features, such as cholesterol, to improve model robustness.
 
 ## Setup Instructions
 
